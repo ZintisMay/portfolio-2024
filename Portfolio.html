@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .portfolio {
+      position: relative;
+      z-index: 100;
+    }
+
+    .nameOverlay {
+      margin-bottom: 20px;
+    }
+
+    .expander {
+      position: relative;
+      height: 50px;
+      overflow: hidden;
+      transition: 1s;
+      border-bottom: 1px solid black;
+    }
+
+    .expander .expanderText {
+      position: absolute;
+      padding: 40px 20px;
+      text-align: left;
+      vertical-align: center;
+    }
+
+    .expander:before {
+      position: absolute;
+      content: "";
+      top: 20px;
+      left: 20px;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-top: 10px solid black;
+      border-left: 10px solid transparent;
+      transition: 1s;
+      transform-origin: center 5px;
+    }
+
+    .expander.expanded {
+      height: 215px;
+    }
+
+    @media (max-width: 1050px) {
+      .expander.expanded {
+        height: 235px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .expander.expanded {
+        height: 245px;
+      }
+    }
+
+    @media (max-width: 840px) {
+      .expander.expanded {
+        height: 185px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .expander.expanded {
+        height: 185px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .expander.expanded {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .expander.expanded {
+        height: 215px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .expander.expanded {
+        height: 255px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .expander.expanded {
+        height: 265px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .expander.expanded {
+        height: 295px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .expander.expanded {
+        height: calc(-100vw + 650px);
+      }
+    }
+
+    .expander.expanded:before {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="portfolio">
+    <p class="portfolioDescription">My most recent employer was <a class="textLink"
+        href="https://www.thoriumdigital.com/" target="_blank">Thorium Digital</a>, and I was the primary developer for
+      the following websites:</p>
+    <div class="panelList">
+      <div class="panel" v-for="site in sites" v-bind:key="site">
+        <a v-bind:href="site.linkURL" target="_blank">
+          <h3 class="nameOverlay">{{site.properName}}<img class="linkIcon" src="/images/linkIcon.png"></h3>
+        </a>
+        <img class="panelImage" v-bind:src="'/images/' + site.image">
+        <div class="expander" v-bind:class="{'expanded':site.expanded}" v-on:click="expandBox(site)">
+          <p class="expanderText">{{site.description}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
