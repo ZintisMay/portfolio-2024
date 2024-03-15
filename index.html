@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="index.css">
   <style>
     .defaultPage {
       outline: 1px solid red;
@@ -16,9 +17,8 @@
 
     .defaultPageLinks {
       position: absolute;
-      top: 100%;
+      bottom: 0;
       width: 100%;
-      height: 10vw;
       max-height: 75px;
       display: flex;
       justify-content: space-around;
@@ -44,6 +44,9 @@
 
     .defaultPageLinks a {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .defaultPageLinks .linkTitle {
@@ -89,10 +92,78 @@
     a {
       color: #42b983;
     }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      outline: 1px solid black;
+      background-color: #efb678;
+    }
+
+    .menu.open {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .menuButton {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      right: 0;
+      /* outline: 3px solid black; */
+      margin-top: 20px;
+      margin-right: 20px;
+      height: 35px;
+      width: 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    .menuButton .line {
+      height: 5px;
+      width: 100%;
+      background-color: black;
+    }
   </style>
 </head>
 
 <body>
+  <div class="menuButton" id="menuButton">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div class="menu" id="menu">
+
+    <div class="">
+      <a href="/">
+        <img class="defaultpageLinkIcon" src="images/homeIcon.png" />
+        <div class="linkTitle">Home</div>
+      </a>
+      <a href="/About.html">
+        <img class="defaultpageLinkIcon" src="images/personIcon.png" />
+        <div class="linkTitle">About</div>
+      </a>
+      <a href="/Portfolio.html">
+        <img class="defaultpageLinkIcon" src="images/siteIcon.png" />
+        <div class="linkTitle">Portfolio</div>
+      </a>
+      <!-- <a href="/Games">
+        <img class="defaultpageLinkIcon" src="images/gameIcon.png" />
+        <div class="linkTitle">Games</div>
+      </a> -->
+      <a href="/Contact.html">
+        <img class="defaultpageLinkIcon" src="images/mailIcon.png" />
+        <div class="linkTitle">Contact</div>
+      </a>
+    </div>
+  </div>
+
   <div class="defaultPage">
     <div class="whoAmI">
       <p class="centeredText">Is a Web Developer</p>
@@ -101,6 +172,7 @@
       <p class="centeredText">Likes challenge</p>
       <p class="centeredText">Hates brussel sprouts</p>
     </div>
+
     <div class="defaultPageLinks">
       <a href="/">
         <img class="defaultpageLinkIcon" src="images/homeIcon.png" />
@@ -125,5 +197,14 @@
     </div>
   </div>
 </body>
+<script>
+  let menuButton = document.getElementById("menuButton")
+  let menu = document.getElementById("menu")
+  console.log(menuButton)
+  menuButton.addEventListener("click", function (e) {
+    console.log("click")
+    menu.classList.toggle("open")
+  })
+</script>
 
 </html>
