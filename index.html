@@ -107,6 +107,12 @@
     .menu.open {
       height: 100vh;
       width: 100vw;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* text-align: center; */
+      flex-wrap: wrap;
     }
 
     .menuButton {
@@ -124,6 +130,39 @@
       flex-direction: column;
     }
 
+    .menu .smallerMenu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 210px;
+      height: 210px;
+      /* outline: 1px solid black; */
+    }
+
+    .menu .smallerMenu>div {
+      /* background-color: blue; */
+      height: 100px;
+      width: 100px;
+      text-align: center;
+      /* overflow: hidden; */
+      /* width: 50%; */
+    }
+
+    .menu .smallerMenu>div>a {
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      color: black;
+    }
+
+    .menu .smallerMenu img {
+      height: 75px;
+      max-width: 100px;
+    }
+
+
+
     .menuButton .line {
       height: 5px;
       width: 100%;
@@ -138,29 +177,34 @@
     <div class="line"></div>
     <div class="line"></div>
   </div>
-  <div class="menu" id="menu">
+  <div class="menu open" id="menu">
 
-    <div class="">
-      <a href="/">
-        <img class="defaultpageLinkIcon" src="images/homeIcon.png" />
-        <div class="linkTitle">Home</div>
-      </a>
-      <a href="/About.html">
-        <img class="defaultpageLinkIcon" src="images/personIcon.png" />
-        <div class="linkTitle">About</div>
-      </a>
-      <a href="/Portfolio.html">
-        <img class="defaultpageLinkIcon" src="images/siteIcon.png" />
-        <div class="linkTitle">Portfolio</div>
-      </a>
-      <!-- <a href="/Games">
-        <img class="defaultpageLinkIcon" src="images/gameIcon.png" />
-        <div class="linkTitle">Games</div>
-      </a> -->
-      <a href="/Contact.html">
-        <img class="defaultpageLinkIcon" src="images/mailIcon.png" />
-        <div class="linkTitle">Contact</div>
-      </a>
+    <div class="smallerMenu">
+      <div>
+        <a href="/">
+          <img class="defaultpageLinkIcon" src="images/homeIcon.png" />
+          <div class="linkTitle">Home</div>
+        </a>
+      </div>
+      <div>
+        <a href="/About.html">
+          <img class="defaultpageLinkIcon" src="images/personIcon.png" />
+          <div class="linkTitle">About</div>
+        </a>
+      </div>
+      <div>
+        <a href="/Portfolio.html">
+          <img class="defaultpageLinkIcon" src="images/siteIcon.png" />
+          <div class="linkTitle">Portfolio</div>
+        </a>
+      </div>
+
+      <div>
+        <a href="/Contact.html">
+          <img class="defaultpageLinkIcon" src="images/mailIcon.png" />
+          <div class="linkTitle">Contact</div>
+        </a>
+      </div>
     </div>
   </div>
 
