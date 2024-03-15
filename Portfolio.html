@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="index.css">
   <style>
     .portfolio {
       position: relative;
@@ -14,123 +15,95 @@
     .nameOverlay {
       margin-bottom: 20px;
     }
-
-    .expander {
-      position: relative;
-      height: 50px;
-      overflow: hidden;
-      transition: 1s;
-      border-bottom: 1px solid black;
-    }
-
-    .expander .expanderText {
-      position: absolute;
-      padding: 40px 20px;
-      text-align: left;
-      vertical-align: center;
-    }
-
-    .expander:before {
-      position: absolute;
-      content: "";
-      top: 20px;
-      left: 20px;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-top: 10px solid black;
-      border-left: 10px solid transparent;
-      transition: 1s;
-      transform-origin: center 5px;
-    }
-
-    .expander.expanded {
-      height: 215px;
-    }
-
-    @media (max-width: 1050px) {
-      .expander.expanded {
-        height: 235px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .expander.expanded {
-        height: 245px;
-      }
-    }
-
-    @media (max-width: 840px) {
-      .expander.expanded {
-        height: 185px;
-      }
-    }
-
-    @media (max-width: 800px) {
-      .expander.expanded {
-        height: 185px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .expander.expanded {
-        height: 200px;
-      }
-    }
-
-    @media (max-width: 580px) {
-      .expander.expanded {
-        height: 215px;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .expander.expanded {
-        height: 255px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .expander.expanded {
-        height: 265px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .expander.expanded {
-        height: 295px;
-      }
-    }
-
-    @media (max-width: 350px) {
-      .expander.expanded {
-        height: calc(-100vw + 650px);
-      }
-    }
-
-    .expander.expanded:before {
-      transform: rotate(180deg);
-    }
   </style>
 </head>
 
 <body>
-  <div class="portfolio">
-    <p class="portfolioDescription">My most recent employer was <a class="textLink"
-        href="https://www.thoriumdigital.com/" target="_blank">Thorium Digital</a>, and I was the primary developer for
-      the following websites:</p>
-    <div class="panelList">
-      <div class="panel" v-for="site in sites" v-bind:key="site">
-        <a v-bind:href="site.linkURL" target="_blank">
-          <h3 class="nameOverlay">{{site.properName}}<img class="linkIcon" src="/images/linkIcon.png"></h3>
-        </a>
-        <img class="panelImage" v-bind:src="'/images/' + site.image">
-        <div class="expander" v-bind:class="{'expanded':site.expanded}" v-on:click="expandBox(site)">
-          <p class="expanderText">{{site.description}}
-          </p>
-        </div>
+  <div class="aboutPage">
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-RCSB.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="https://www.rcsb.org/">RCSB - Research Collaboratory for Structural Bioinformatics</a>
+        <p>RCSB was my first foray into Front-End Team Lead. I worked with a small team of Junior Developers to
+          implement new features, maintain legacy code, bug fix, work with 3rd party services, and otherwise keep
+          RCSB.org and <a href="https://pdb101.rcsb.org/">PDB101.RCSB.org</a> in tip-top shape.<br><br>RCSB was largely
+          concerned with funcationality and providing the scientific community (our primary user base) the best features
+          with the most complete data. UI/UX was on the drawing board, but did not have priority over improving the data
+          and functionality.
+        </p>
       </div>
     </div>
-  </div>
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-Atlassian.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="https://community.atlassian.com/">Atlassian Community</a>
+        <p>Community.Atlassian.com was a fairly robust legacy project. Built on top of the Khoros platform, Khoros
+          provides a lot of the fundamental forum features that we know and expect from these sorts of websites.
+          Atlassian has a lot of ideas about what should be provided to users, so the implementation and maintenance of
+          numerous features, such as gamification, notifications, 3rd party integrations were all part and parcel.
+        </p>
+      </div>
+    </div>
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-TakedaCT.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="https://clinicaltrials.takeda.com/">Takeda Clinical Trials</a>
+        <p>Working with everyone at Thorium Digital, we put together this full stack project. A full stack project, I
+          primarily worked on UI and UX implementations. Filling in gaps in the design documents and providing the user
+          with a seamless experience on all device sizes. I also handled a few prototype features (mostly UX flourishes)
+          that didn't end up making the cut, as they didn't sit well with users.
+        </p>
+      </div>
+    </div>
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-Baileys.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="https://www.baileys.com/en-us/">Baileys</a>
+        <p>While at Thorium I was the primary developer for content updates on Baileys.com. Which was a little sobering
+          as a Junior Developer, but pretty fun to work on!
+        </p>
+      </div>
+    </div>
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-KW.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="https://www.kikoriwhiskey.com/">Kikori Whiskey</a>
+        <p>Kikori is a Japanese rice whiskey. Originally Wordpress, I designed a custom scraper to pull the content into
+          JSON and process it for the Gulp/Nunjucks engine to consume. I handled nearly every step in the process.
+        </p>
+      </div>
+    </div>
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-JTP.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="https://www.jointhepact.com/en-us/">Join The Pact</a>
+        <p>Join The Pact is a site for people to pledge against drunk driving. I was responsible for website
+          architecture, structure, localization, and database design. I translated UI mockups into HTML and CSS using
+          the Gulp/Nunjucks engine.
+        </p>
+      </div>
+    </div>
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-QC.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="http://www.quakercityshrubs.com/">Quaker City Shrubs</a>
+        <p>QC Shrubs is a brand of malt beverage, with a distinct site meant to convey its distinct flavor. I was
+          responsible for website architecture, structure, UI and UX development. I translated UI mockups into HTML
+          and CSS using the Gulp/Nunjucks engine.
+        </p>
+      </div>
+    </div>
+    <div class="panelHolder">
+      <div class="box boxLeft boxImage" style="background-image:url(/images/Fireshot-CB.png)"></div>
+      <div class="box boxRight boxText">
+        <a href="https://www.cascadeblonde.com/">Cascade Blonde</a>
+        <p>Cascade Blonde is a brand of Tennessee whiskey. For their site I handled translating the mockups into HTML,
+          CSS, and Javascript animations. This site was a lot of fun to work on, with a nice color pallette and
+          interesting
+          layout.
+        </p>
+      </div>
+    </div>
 </body>
 
 </html>
